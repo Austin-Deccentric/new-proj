@@ -1,4 +1,6 @@
 "use client";
+
+import { motion } from "motion/react"
 import { useFormState, useFormStatus } from "react-dom";
 import { sendEmail } from "@/pages/api/action";
 import React from "react";
@@ -49,7 +51,7 @@ function ContactForm() {
 
           
         </fieldset>
-        <button className="btn btn-neutral mt-4"><FormStatus /></button>
+        <FormStatus />
       </form>
     </div>
   );
@@ -59,8 +61,8 @@ export default ContactForm;
 function FormStatus() {
   const { pending } = useFormStatus();
   return(
-    <button className="btn btn-neutral mt-4" disabled={pending}>
-      {pending ? "Sending..." : "Send"}
+    <button className="btn bg-neutral" disabled={pending}>
+      {pending ? (<span className="loading loading-spinner"> </span>) : "Send"}
     </button>
   )
 }
