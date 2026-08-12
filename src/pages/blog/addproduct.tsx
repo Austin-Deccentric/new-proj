@@ -1,5 +1,4 @@
 import AddProduct from '@/component/blog/add';
-import Blog from '@/component/blog/blog';
 import React from 'react'
 
 const Index = () => {
@@ -8,7 +7,7 @@ const Index = () => {
 
   return (
     <div>
-      <Blog />
+        <AddProduct/>
     </div>
   )
 }

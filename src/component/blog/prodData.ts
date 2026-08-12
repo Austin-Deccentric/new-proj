@@ -1,5 +1,18 @@
 import prodDetails from "@/pages/blog/[prodId]";
 
+export interface Product {
+  id: number;
+  title: string;
+  price: number;
+  thumbnail: string;
+  description: string;
+}
+
+export interface ProductsResponse {
+  products: Product[];
+}
+ 
+
 export type TProdCard = {
   id: number;
   title: string;

@@ -15,7 +15,7 @@ const PoppinsFont = Poppins({
 export default function Home() {
   return (
     <div
-      className={`${PoppinsFont.variable} flex min-h-screen items-center justify-center bg-zinc-50 font-sans`}
+      className={`${PoppinsFont.variable} flex min-h-screen items-center justify-center bg-blue-500`}
     >
       <main className="flex2 w-full flex-col items-center justify-between sm:items-start">
         <Hero />

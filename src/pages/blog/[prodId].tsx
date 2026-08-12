@@ -1,20 +1,25 @@
 import React from 'react'
-import { useRouter } from 'next/router'
-import {prodCard, TProdCard} from '@/component/blog/prodData';
+import { useRouter } from 'next/router';
+import { useQueryClient } from '@tanstack/react-query';
+import {prodCard, Product, TProdCard} from '@/component/blog/prodData';
 
 const ProdDetails = () => {
   const router = useRouter();
   const { prodId } = router.query;
-  const product = prodCard.find((item: TProdCard) => item.id === Number(prodId));
+  const queryClient = useQueryClient();
+  const product = queryClient.getQueryData<Product[]>(['products'])?.find((_product) => _product.id === Number(prodId) );
+
 
   console.log("Router Object:", router.query);
-  return (
+  return (product &&
     <div>
-      <h1>{prodId}</h1>
       <div className="flex">
-        <img src={product?.img} alt={product?.title} />
+        <img
+         src={product.thumbnail} 
+         alt={product.title} 
+         />
         <div className="ml-4">
-         <h1 className="text-2xl font-bold">{product?.title}</h1>
+         <h1 className="text-2xl font-bold">{product.title}</h1>
           
         </div>
       </div>
